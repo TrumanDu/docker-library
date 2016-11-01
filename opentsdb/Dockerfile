@@ -21,5 +21,4 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && rm v${TSDB_VERSION}.zip \
     && cd /opt/opentsdb-${TSDB_VERSION} \
     && ./build.sh \
-    && apk del builddeps \
     && rm -rf /var/cache/apk/*
