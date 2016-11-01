@@ -23,7 +23,3 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && ./build.sh \
     && apk del builddeps \
     && rm -rf /var/cache/apk/*
-
-ADD script/start_opentsdb.sh /opt/opentsdb-${TSDB_VERSION}/
-CMD ["bash","start_opentsdb.sh"]
-EXPOSE 4242
