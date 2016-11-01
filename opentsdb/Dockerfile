@@ -10,4 +10,4 @@ MAINTAINER truman
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
     && apk --update add \
        bash \
-	&& apk add -U --no-cache gnuplot git  automake autoconf make
+	&& apk add -U --no-cache gnuplot git  automake autoconf make python
