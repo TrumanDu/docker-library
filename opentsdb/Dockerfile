@@ -20,7 +20,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && unzip v${TSDB_VERSION}.zip \
     && rm v${TSDB_VERSION}.zip \
     && cd /opt/opentsdb-${TSDB_VERSION} \
-    && :./build.sh \
+    && ./build.sh \
     && : because of issue https://github.com/OpenTSDB/opentsdb/issues/707 \
     && : commented lines do not work. These can be uncommeted when version of \
     && : tsdb is bumped. Entrypoint will have to be updated too. \
