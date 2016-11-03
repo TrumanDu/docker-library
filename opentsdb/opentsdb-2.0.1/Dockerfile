@@ -17,7 +17,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && wget --no-check-certificate \
        -O v${TSDB_VERSION}.tar.gz \
        https://github.com/OpenTSDB/opentsdb/releases/download/v${TSDB_VERSION}/opentsdb-${TSDB_VERSION}.tar.gz \
-    && tar xvf v${TSDB_VERSION}.zip \
+    && tar xvf v${TSDB_VERSION}.tar.gz \
     && rm v${TSDB_VERSION}.tar.gz \
     && cd /opt/opentsdb-${TSDB_VERSION} \
     && ./build.sh \
