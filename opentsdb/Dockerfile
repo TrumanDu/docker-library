@@ -1,12 +1,12 @@
 #################################
 #version: 1.00
 #desc: opentsdb镜像
-#opentsdb Version:2.2.0
+#opentsdb Version:2.0.1
 #################################
 FROM openjdk:8-jdk-alpine
 MAINTAINER truman
 
-ENV TSDB_VERSION 2.2.0
+ENV TSDB_VERSION 2.0.1
 RUN mkdir /opt/
 WORKDIR /opt/
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
