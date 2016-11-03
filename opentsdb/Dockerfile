@@ -1,12 +1,12 @@
 #################################
 #version: 1.00
 #desc: opentsdb镜像
-#opentsdb Version:2.0.1
+#opentsdb Version:2.2.0
 #################################
 FROM openjdk:8-jdk-alpine
 MAINTAINER truman
 
-ENV TSDB_VERSION 2.0.1
+ENV TSDB_VERSION 2.2.0
 RUN mkdir /opt/
 WORKDIR /opt/
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
@@ -24,8 +24,8 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && : because of issue https://github.com/OpenTSDB/opentsdb/issues/707 \
     && : commented lines do not work. These can be uncommeted when version of \
     && : tsdb is bumped. Entrypoint will have to be updated too. \
-    && cd build \
-    && make install \
-    && cd / \
+    && : cd build \
+    && : make install \
+    && : cd / \
     && : rm -rf /opt/opentsdb-${TSDB_VERSION} \
     && rm -rf /var/cache/apk/*
