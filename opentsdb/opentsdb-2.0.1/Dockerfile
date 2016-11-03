@@ -16,7 +16,7 @@ RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/reposit
     && apk add -U --no-cache gnuplot git  automake autoconf make python \
     && wget --no-check-certificate \
        -O v${TSDB_VERSION}.tar.gz \
-       https://github.com/OpenTSDB/opentsdb/releases/download/v${TSDB_VERSION}/v${TSDB_VERSION}.tar.gz \
+       https://github.com/OpenTSDB/opentsdb/releases/download/v${TSDB_VERSION}/opentsdb-${TSDB_VERSION}.tar.gz \
     && tar xvf v${TSDB_VERSION}.zip \
     && rm v${TSDB_VERSION}.tar.gz \
     && cd /opt/opentsdb-${TSDB_VERSION} \
