@@ -31,7 +31,7 @@ RUN apk upgrade --update && \
     http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-b${JAVA_VERSION_BUILD}/${JAVA_PACKAGE}-${JAVA_VERSION_MAJOR}u${JAVA_VERSION_MINOR}-linux-x64.tar.gz && \
     gunzip /tmp/java.tar.gz && \
     tar -C /opt -xf /tmp/java.tar && \
-    apk del curl glibc-i18n && \
+    apk del glibc-i18n && \
     ln -s /opt/jdk1.${JAVA_VERSION_MAJOR}.0_${JAVA_VERSION_MINOR} /opt/jdk && \
     rm -rf /opt/jdk/*src.zip \
            /opt/jdk/lib/missioncontrol \
@@ -82,9 +82,10 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
+ADD pom.xml /maven/
 
 VOLUME "$USER_HOME_DIR/.m2"
 
 ENTRYPOINT ["/usr/local/bin/mvn-entrypoint.sh"]
-CMD ["mvn"]
+CMD ["mvn","install"]
 # EOF
