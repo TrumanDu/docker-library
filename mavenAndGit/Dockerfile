@@ -84,7 +84,7 @@ COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
 ADD pom.xml /maven/
 RUN cd /maven \
-    && mvn install
+    && /usr/bin/mvn install
 
 VOLUME "$USER_HOME_DIR/.m2"
 
