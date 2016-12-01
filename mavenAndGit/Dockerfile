@@ -20,7 +20,7 @@ ENV JAVA_VERSION_MAJOR=8 \
 
 # do all in one step
 RUN apk upgrade --update && \
-    apk add --update curl ca-certificates bash git && \
+    apk add --update curl tar ca-certificates bash git && \
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
     apk add --allow-untrusted /tmp/*.apk && \
     rm -v /tmp/*.apk && \
@@ -74,7 +74,7 @@ ARG USER_HOME_DIR="/root"
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
     && curl -fsSL http://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
-      | tar -xzC /usr/share/maven \
+      | tar -xzC /usr/share/maven --strip-components=1 \
     && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 ENV MAVEN_HOME /usr/share/maven
@@ -84,7 +84,7 @@ COPY mvn-entrypoint.sh /usr/local/bin/mvn-entrypoint.sh
 COPY settings-docker.xml /usr/share/maven/ref/
 ADD pom.xml /maven/
 RUN cd /maven \
-    && /usr/share/maven/bin/mvn install
+    && mvn install
 
 VOLUME "$USER_HOME_DIR/.m2"
 
