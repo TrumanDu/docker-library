@@ -14,7 +14,7 @@ WORKDIR /opt/app/elasticsearch
 ENV PATH /opt/app/elasticsearch/bin:$PATH
 
 ENV ELASTICSEARCH_VERSION 5.5.1
-ENV ELASTICSEARCH_TARBALL="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.1.tar.gz" \
+ENV ELASTICSEARCH_TARBALL="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.1.tar.gz" 
 
 RUN set -ex; \
 	\
