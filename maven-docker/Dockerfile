@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11：jdk-11.0.6_10-alpine
+FROM adoptopenjdk/openjdk11:jdk-11.0.6_10-alpine
 
 ARG MAVEN_VERSION=3.6.3
 ARG USER_HOME_DIR="/root"
