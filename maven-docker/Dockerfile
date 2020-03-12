@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-11
+FROM jdk-11.0.6_10-alpine
 
 RUN apk add --no-cache \
         ca-certificates
